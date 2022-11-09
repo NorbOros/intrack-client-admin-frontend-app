@@ -6,14 +6,15 @@ import { STATUSES } from '../../constants/statuses';
 
 const ClientCard = (props) => {
     const client = props.client;
+    const dispatch = useDispatch();
     const { id, title, checkInDateTime, dueDateTime } = client;
     const currentClient = useSelector(state => state.clientReducer.currentClient);
-    const dispatch = useDispatch();
 
     const callClickHandler = async () => {
         if (Object.keys(currentClient).length !== 0) {
             return;
         }
+        // TODO Administrator ID and desk should be handled dynamically 
         const response = await changeAppointmentStatus({ appointmentId: id, status: STATUSES.CALLED, administratorId: 'Admin123', desk: 'A23' });
         if (response === 200) {
             dispatch(clientActions.modifyCurrentClient(client));
@@ -40,7 +41,7 @@ const ClientCard = (props) => {
                     className='btn btn-outline-success btn-sm position-absolute bottom-0 end-0 mb-2 me-2'
                     onClick={callClickHandler}>Call Client</button>
             </div>
-        </div >
+        </div>
     );
 }
 

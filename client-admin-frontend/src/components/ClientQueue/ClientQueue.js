@@ -10,8 +10,8 @@ const v1CheckInRoot = process.env.REACT_APP_V1_CHECKIN_ROOT;
 const streamCheckedInClients = process.env.REACT_APP_STREAM;
 
 const ClientQueue = () => {
-    const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(true);
     const clientQueue = useSelector(state => state.clientReducer.clientQueue);
 
     const fetchCheckedInClients = async () => {

@@ -7,9 +7,8 @@ import { clientActions } from '../../store/slices/client-slice';
 
 const ClientDetails = () => {
     const dispatch = useDispatch();
-
     const currentClient = useSelector(state => state.clientReducer.currentClient);
-    const { id, title, firstName, lastName, dueDateTime, checkInDateTime, registrationNm } = currentClient;
+    const { id, title, dueDateTime, checkInDateTime, registrationNm } = currentClient;
 
     const doneClickHandler = async () => {
         const response = await changeAppointmentStatus({ appointmentId: id, status: STATUSES.CLOSED, administratorId: 'AdminId' });
