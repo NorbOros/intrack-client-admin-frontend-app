@@ -1,0 +1,7 @@
+export const STATUSES = {
+    CREATED: 'CREATED',
+    CHECKED_IN: 'CHECKED_IN',
+    CALLED: 'CALLED',
+    CLOSED: 'CLOSED',
+    CANCELLED: 'CANCELLED'
+};
